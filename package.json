@@ -2,7 +2,6 @@
   "name": "team-profile-generator",
   "version": "1.0.0",
   "description": "team-profile-generator",
-  "start": "src/index.js",
   "scripts": {
     "start": "node app.js",
     "test": "jest --verbose test/*"
