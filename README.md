@@ -9,6 +9,7 @@
     - [About](#about)
     - [User Story](#user-story)
     - [Screenshots:](#screenshots)
+  - [Installation](#installation)
   - [Credits](#credits)
   - [Tests:](#tests)
   - [Contact Information:](#contact-information)
@@ -28,6 +29,18 @@ A software engineering team-generator command line application. The application 
 ![Screenshot of load page](place holder for link for load page html?)
 
 ![Screenshot of load page](placeholder for link for various cards?)
+
+## Installation
+
+```
+npm install inquirer
+npm install jest
+git clone https://github.com/jj77847/team-profile-generator.git
+cd team-profile-generator
+npm install
+node index.js
+npm run start
+```
 
 ## Credits
 
