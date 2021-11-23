@@ -1,0 +1,17 @@
+.team-heading {
+  background-color: black;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  text-decoration: underline;
+}
+
+.employee-card {
+  background-color: lightgrey;
+  font-family: "Times New Roman", Times, serif;
+  float: left;
+}
+
+body {
+  background-image: url("./matrix-code-background.jpeg");
+  text-align: center;
+}
