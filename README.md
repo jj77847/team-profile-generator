@@ -9,6 +9,9 @@
     - [About](#about)
     - [User Story](#user-story)
     - [Screenshots:](#screenshots)
+- [Screenshot of generated HTML page](#screenshot-of-generated-html-page)
+- [Screenshot of terminal](#screenshot-of-terminal)
+- [Screenshot of tests](#screenshot-of-tests)
   - [Installation](#installation)
   - [Credits](#credits)
   - [Tests:](#tests)
@@ -26,11 +29,17 @@ A software engineering team-generator command line application. The application 
 
 ### Screenshots:
 
-![Screenshot of tests](/Users/jonathanjefferies/team-profile-generator/screenshot-tests.png)
+# Screenshot of generated HTML page
 
-![Screenshot of load page](screencapture-team-profile-generator.png)
+![Screenshot of generated HTML page](screencapture-team-profile-generator.png)
 
-![Screenshot of terminal]()
+# Screenshot of terminal
+
+![Screenshot of terminal](Screenshot-terminal.png)
+
+# Screenshot of tests
+
+![Screenshot of tests](screenshot-tests.png)
 
 ## Installation
 
