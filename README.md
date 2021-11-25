@@ -59,7 +59,7 @@ npm run app
 
 ## Tests:
 
-    npm run test
+    npm run tests
 
 ## Contact Information:
 
