@@ -26,9 +26,11 @@ A software engineering team-generator command line application. The application 
 
 ### Screenshots:
 
-![Screenshot of load page](place holder for link for load page html?)
+![Screenshot of tests](/Users/jonathanjefferies/team-profile-generator/screenshot-tests.png)
 
 ![Screenshot of load page](screencapture-team-profile-generator.png)
+
+![Screenshot of terminal]()
 
 ## Installation
 
