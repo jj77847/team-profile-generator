@@ -39,7 +39,7 @@ git clone https://github.com/jj77847/team-profile-generator.git
 cd team-profile-generator
 npm install
 node index.js
-npm run start
+npm run app
 ```
 
 ## Credits
