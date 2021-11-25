@@ -28,7 +28,7 @@ A software engineering team-generator command line application. The application 
 
 ![Screenshot of load page](place holder for link for load page html?)
 
-![Screenshot of load page](placeholder for link for various cards?)
+![Screenshot of load page](screencapture-team-profile-generator.png)
 
 ## Installation
 
