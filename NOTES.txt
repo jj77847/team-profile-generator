@@ -4,8 +4,7 @@ What is the structure of the team?
   - Intern
 
 Questions:
-  - Enter team name
-
+ 
   - Enter manager name
   - Enter manager employee ID
   - Enter manager email address
