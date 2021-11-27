@@ -44,12 +44,12 @@ A software engineering team-generator command line application. The application 
 ## Installation
 
 ```
+git clone https://github.com/jj77847/team-profile-generator.git
 npm install inquirer
 npm install jest
-git clone https://github.com/jj77847/team-profile-generator.git
+
 cd team-profile-generator
 npm install
-node index.js
 npm run app
 ```
 
