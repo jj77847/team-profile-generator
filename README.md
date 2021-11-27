@@ -12,6 +12,7 @@
 - [Screenshot of generated HTML page](#screenshot-of-generated-html-page)
 - [Screenshot of terminal](#screenshot-of-terminal)
 - [Screenshot of tests](#screenshot-of-tests)
+- [Walk-threw of application](#walk-threw-of-application)
   - [Installation](#installation)
   - [Credits](#credits)
   - [Tests:](#tests)
@@ -40,6 +41,10 @@ A software engineering team-generator command line application. The application 
 # Screenshot of tests
 
 ![Screenshot of tests](screenshot-tests.png)
+
+# Walk-threw of application
+
+![youtube link of walk-threw of application](https://youtu.be/GXveSvdXX0A)
 
 ## Installation
 
