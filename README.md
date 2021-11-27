@@ -44,7 +44,7 @@ A software engineering team-generator command line application. The application 
 
 # Walk-threw of application
 
-![youtube link](https://youtu.be/GXveSvdXX0A)
+Youtube link - https://www.youtube.com/watch?v=GXveSvdXX0A
 
 ## Installation
 
