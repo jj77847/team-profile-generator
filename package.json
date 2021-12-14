@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "Jonathan Jefferies",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "inquirer": "^8.2.0"
   },
