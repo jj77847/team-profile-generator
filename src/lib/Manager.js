@@ -1,7 +1,12 @@
 class Manager extends Employee {
   constructor({ name, id, email, officeNumber }) {}
 
-  getOfficeNumber() {}
+  getOfficeNumber() {
+    return this.officeNumber;
+  }
 
-  getRole() {}
+  getRole() {
+    return "Manager";
+  }
 }
+module.exports = Manager;
