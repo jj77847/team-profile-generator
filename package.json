@@ -9,8 +9,8 @@
     "test:watch": "jest --verbose --watch"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Jonathan Jefferies",
+  "license": "MIT",
   "dependencies": {
     "inquirer": "^8.2.0"
   },
