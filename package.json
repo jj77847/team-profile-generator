@@ -1,7 +1,6 @@
 {
   "name": "team-profile-generator",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -15,7 +14,16 @@
     "inquirer": "^8.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.3",
-    "jest": "^27.3.1"
-  }
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jj77847/team-profile-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jj77847/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/jj77847/team-profile-generator#readme",
+  "description": ""
 }
