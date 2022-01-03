@@ -1,132 +1,178 @@
-# Unit 10: Object-Oriented Programming (OOP)
+# 10 Object-Oriented Programming: Team Profile Generator
 
-## Overview
+## Your Task
 
-In this unit, we'll discuss object-oriented programming in JavaScript as we learn about constructors and the prototype chain. **Constructors** are special functions that help us create objects of similar types. **Prototypes** are JavaScript’s built-in system that allows objects to inherit features from other objects. Additionally, we'll explore Promises and learn how to take full advantage of them.
+Your task is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
 
-> **On the Job:** Prototypes are generally considered an advanced JavaScript concept. Mastering this concept will make you a more competitive JavaScript developer!
+Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and all of the tests passing. You’ll need to submit a link to the video AND add it to the readme of your project.
 
-We'll also cover **test-driven development (TDD)**, which involves writing tests for application features before writing any code. Then we write only the minimum amount of code needed to make the tests pass&mdash;and repeat this process until the application is complete. Among its many benefits, test-driven development helps us write more understandable and maintainable code.
+> **Note**: There is no starter code for this assignment.
 
-We'll conclude this unit with an introduction to modern class syntax and inheritance. ES6 introduced a `class` keyword, which allows us to create objects that use class structures like those found in other OOP programming languages. Essentially, classes are just constructor functions with more intuitive syntax. They allow us to implement more advanced OOP patterns, like inheritance, without needing to understand every aspect of JavaScript's prototypal inheritance system.
+## User Story
 
-## Key Topics
+```md
+AS A manager
+I WANT to generate a webpage that displays my team's basic info
+SO THAT I have quick access to their emails and GitHub profiles
+```
 
-The following topics will be covered in this unit:
+## Acceptance Criteria
 
-* [Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) 
+```md
+GIVEN a command-line application that accepts user input
+WHEN I am prompted for my team members and their information
+THEN an HTML file is generated that displays a nicely formatted team roster based on user input
+WHEN I click on an email address in the HTML
+THEN my default email program opens and populates the TO field of the email with the address
+WHEN I click on the GitHub username
+THEN that GitHub profile opens in a new tab
+WHEN I start the application
+THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
+WHEN I enter the team manager’s name, employee ID, email address, and office number
+THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
+WHEN I select the engineer option
+THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
+WHEN I select the intern option
+THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
+WHEN I decide to finish building my team
+THEN I exit the application, and the HTML is generated
+```
 
-* [Prototypes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype)
+## Mock-Up
 
-* [Inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+The following image shows a mock-up of the generated HTML’s appearance and functionality:
 
-* [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./Assets/10-object-oriented-programming-homework-demo.png)
 
-* [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science))
+The styling in the image is just an example, so feel free to add your own.
 
-  * [Method overloading](https://www.sanfoundry.com/java-program-find-area-square-rectangle-circle-using-method-overloading/) 
+## Getting Started
 
-* [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+This homework will combine many of the skills we've covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help get started.
 
-  * [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) 
+Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user. The application will be invoked by using the following command:
 
-* [Callback functions](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+```bash
+node index.js
+```
 
-* [constructor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor)
+It is recommended that you start with a directory structure that looks like the following example:
 
-  * [function() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)
+```md
+.
+├── **tests**/ //jest tests
+│ ├── Employee.test.js
+│ ├── Engineer.test.js
+│ ├── Intern.test.js
+│ └── Manager.test.js
+├── dist/ // rendered output (HTML) and CSS style sheet  
+├── lib/ // classes
+├── src/ // template helper code
+├── .gitignore // indicates which folders and files Git should ignore
+├── index.js // runs the application
+└── package.json
+```
 
-* [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
+**Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and include it when you push up to your application's repository.
 
-  * [Jest](https://jestjs.io/docs/en/getting-started)
+The application must include `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `__tests__` directory) must ALL pass.
 
-  * [Mock functions](https://jestjs.io/docs/en/mock-functions)
+The first class is an `Employee` parent class with the following properties and methods:
 
-  * [Mocking modules](https://jestjs.io/docs/en/mock-functions#mocking-modules)
+- `name`
 
-* [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- `id`
 
-  * [Subclasses](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Sub_classing_with_extends)
-  
-* [git stash](https://www.git-scm.com/docs/git-stash) 
+- `email`
 
-## Learning Objectives
+- `getName()`
 
-You will be employer-ready if you are able to:
+- `getId()`
 
-* Create more scalable applications that follow the OOP paradigm.
+- `getEmail()`
 
-* Create new objects using constructor functions.
+- `getRole()`&mdash;returns `'Employee'`
 
-* Add methods to objects using prototypical inheritance.
+The other three classes will extend `Employee`.
 
-* Explain polymorphism through method overloading.
+In addition to `Employee`'s properties and methods, `Manager` will also have the following:
 
-* Implement `Promise.all()` to wait for multiple API calls.
+- `officeNumber`
 
-* Verify that your code works as intended through the use of automated tests.
+- `getRole()`&mdash;overridden to return `'Manager'`
 
-* Build applications using test-driven development&mdash;writing tests before implementing functionality.
+In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
 
-* Implement ES6 classes to create new instances of objects.
+- `github`&mdash;GitHub username
 
-* Extend basic classes with additional functionality.
+- `getGithub()`
 
-* Implement multiple classes with different purposes to practice the OOP paradigm.
+- `getRole()`&mdash;overridden to return `'Engineer'`
 
-## Technical Interview Preparation
+In addition to `Employee`'s properties and methods, `Intern` will also have the following:
 
-You will be employer-competitive if you are able to solve the following algorithms and successfully complete the assessments.
+- `school`
 
-### Algorithms
+- `getSchool()`
 
-Practicing algorithm-based interview questions is one of the best ways to prepare for interviews. Watch the `📹 Let's Code` video for tips and tricks on how to solve the algorithm.
+- `getRole()`&mdash;overridden to return `'Intern'`
 
-* [01: Linear Search](./03-Algorithms/01-linear-search)
+Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
 
-* [02: Is Unique](./03-Algorithms/02-is-unique)
+## Grading Requirements
 
-* [03: Is Anagram](./03-Algorithms/03-is-anagram)
+This homework is graded based on the following criteria:
 
-  * 📹 [Let's Code Is Anagram!](https://2u-20.wistia.com/medias/8hnpk2wu29)
+### Deliverables: 15%
 
-### Assessments
+- A sample HTML file generated using the application must be submitted.
 
-Assess your knowledge by answering technical interview questions and solving coding challenges.
+- Your GitHub repository containing your application code.
 
-* [Unit 10 Assessment](https://forms.gle/rDcYU44xb23s5jm59) 
+### Walkthrough Video: 32%
 
-## Homework
+- A walkthrough video that demonstrates the functionality of the Team Profile Generator and passing tests must be submitted, and a link to the video should be included in your README file.
 
-In this unit's homework, you'll create an application that generates HTML files using input from a command-line interface. The application will gather information about your team or organization, and you'll be able to add as many team members as you want.
+- The walkthrough video must show all four tests passing from the command line.
 
-## Career Connection
+- The walkthrough video must demonstrate how a user would invoke the application from the command line.
 
-Career services material for this unit is located in the [Career Connection folder](./04-Career-Connection/README.md). For more information about career services, including coding milestones, demo days, technical toolkits, workshops, and additional resources, visit the [career services website](https://careernetwork.2u.com/?utm_medium=Academics&utm_source=boot_camp/).
+- The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
 
-## Heads-Up
+- The walkthrough video must demonstrate a generated HTML file that matches the user input.
 
-In the upcoming unit, you will be using an application called Insomnia to make requests to routes you create with Express.js. Be sure to install Insomnia on your computer by visiting the link to the [Insomnia download page](https://insomnia.rest/download) before the end of this unit.
+### Technical Acceptance Criteria: 40%
 
-In the next unit, you'll start using Heroku to host your web applications. Be sure to have the Heroku CLI installed on your computer BEFORE class. You can refer to the [Heroku CLI installation guide on the Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/heroku/how-to-install-the-heroku-cli) for extra guidance.
+- Satisfies all of the preceding acceptance criteria plus the following:
 
-## Resources
+  - Uses the [Inquirer package](https://www.npmjs.com/package/inquirer).
 
-Here are some additional resources to help solidify the topics covered in this unit.
+  - Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
 
-### Git Guide
+  - The application must have `Employee`, `Manager`, `Engineer`, and `Intern` classes.
 
-Refer to the Git Guide to review the git concept for this unit. Watch the `📹 Git Guide` video for an additional walkthrough of the git concept.
+### Repository Quality: 13%
 
-  * 📖 [Git Guide: Git Stash](./01-Activities/27-Evr_Git-Stash-Pop/)
+- Repository has a unique name.
 
-  * 📹 [Git Guide Video: Git Stash](https://2u-20.wistia.com/medias/co9en17nc3) 
+- Repository follows best practices for file structure and naming conventions.
 
-### Full-Stack Blog Posts
+- Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
 
-Check out the [Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/) for additional resources, like walkthroughs, articles, and installation guides.
+- Repository contains multiple descriptive commit messages.
 
-  * 📖 [Heroku CLI installation guide](https://coding-boot-camp.github.io/full-stack/heroku/how-to-install-the-heroku-cli)
+- Repository contains a high-quality readme with description and a link to a walkthrough video.
+
+## Review
+
+You are required to submit the following for review:
+
+- A walkthrough video that demonstrates the functionality of the application and passing tests.
+
+- A sample HTML file generated using your application.
+
+- The URL of the GitHub repository, with a unique name and a readme describing the project.
 
 ---
+
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
