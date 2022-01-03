@@ -1,19 +1,16 @@
 {
   "name": "team-profile-generator",
   "version": "1.0.0",
-  "description": "team-profile-generator",
-  "start": "src/index.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "app": "node app.js",
-    "tests": "jest --verbose test/*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jj77847/team-profile-generator.git"
+    "start": "node src/index.js",
+    "test": "jest --verbose --coverage",
+    "test:watch": "jest --verbose --watch"
   },
   "keywords": [],
-  "author": "Jonathan Jefferies",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.0"
   },
