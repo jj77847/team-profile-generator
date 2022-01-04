@@ -18,14 +18,14 @@ inquirer.prompt([
   },
 ]);
 
-
-const generateInstallation = (answers) => {
-  return `## Installation
-
+// const generateInstallation = (answers) => {
+//     return `## Installation
+// };
 
 // generate readme example
 const generateReadme = (answers) => {
   return `${generateTitle(answers)}
+  
   ${generateTableOfContents(answers)}
   
   ${generateDescription(answers)}
