@@ -1,13 +1,56 @@
+const {
+  generateManager,
+  generateEngineer,
+  generateInturn,
+} = require()
+
+const {
+  initialQuestions,
+  managerQuestions,
+  employeeQuestions,
+  engineerQuestions,
+  internQuestions,
+  continueQuestions,
+} = require()
+
+const generateIndex = ({manager, engineer, intern, teamName }) => {
+  return
+}
+
 // questions for database
+Questions:
+  - Enter team nameDone 
+
+  - Enter manager name
+  - Enter manager employee ID
+  - Enter manager email address
+  - Enter manager office number
+
+  - Select the next employee you want to add:
+    - Engineer
+    - Intern
+    - None
+
+  - Enter engineer name
+  - Enter engineer employee ID
+  - Enter engineer email address
+  - Enter engineer github username
+
+  - Enter intern name
+  - Enter intern employee ID
+  - Enter intern email address
+  - Enter intern school name
 
 // prompt questions examples hw9
 inquirer.prompt([
   {
     type: "input",
-    message: "What is the title of your project?",
+    message: "What is your team name?",
     name: "title",
   },
 
+
+  
   {
     type: "input",
     message: "Input any tests requirements:",
