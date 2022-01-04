@@ -1,91 +1,138 @@
-const {
-  generateManager,
-  generateEngineer,
-  generateInturn,
-} = require()
+const inquirer = require('inquirer');
+const Intern = require('./lib/Intern');
+const Engineer = require('./lib/Engineer');
+const Manager = require('./lib/Manager');
+const generateMyTeam = require('./lib/generateMyTeam');
 
-const {
-  initialQuestions,
-  managerQuestions,
-  employeeQuestions,
-  engineerQuestions,
-  internQuestions,
-  continueQuestions,
-} = require()
-
-const generateIndex = ({manager, engineer, intern, teamName }) => {
-  return
+team = [];
+const internQuestions = () => {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'What is the Interns name?'
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'What is the Interns email?'
+    },
+    {
+      type: 'input',
+      name: 'school',
+      message: 'What is the Interns School?'
+    },
+    {
+      type: 'list',
+      name: 'addMember',
+      message: 'What type of team member do you want to add next?',
+      choices: ['Engineer', 'Intern', 'None'],
+    }
+  ])
+.then((internAnswers)) => {
+  const intern = new Intern(internAnswers.id, internAnswers.name, internAnswers.email, internAnswers.school)
+  team.push(intern)
+  switch(internAnswers.addMember){
+    case 'Engineer';
+      engineerQuestions();
+      break;
+    case 'Intern';
+      internQuestions();
+      break;
+    default;
+      writeToFile('dist/index.html', generateMyTeam(team)
+    }
+  })
 }
 
-// questions for database
-Questions:
-  - Enter team nameDone 
+managerQuestions();
 
-  - Enter manager name
-  - Enter manager employee ID
-  - Enter manager email address
-  - Enter manager office number
-
-  - Select the next employee you want to add:
-    - Engineer
-    - Intern
-    - None
-
-  - Enter engineer name
-  - Enter engineer employee ID
-  - Enter engineer email address
-  - Enter engineer github username
-
-  - Enter intern name
-  - Enter intern employee ID
-  - Enter intern email address
-  - Enter intern school name
-
-// prompt questions examples hw9
-inquirer.prompt([
-  {
-    type: "input",
-    message: "What is your team name?",
-    name: "title",
-  },
-
-
-  
-  {
-    type: "input",
-    message: "Input any tests requirements:",
-    name: "testInput",
-    when: (answers) => {
-      return answers.test;
+const engineerQuestions = () => {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'What is the Engineers name?'
     },
-  },
-]);
+    {
+      type: 'input',
+      name: 'id',
+      message: 'What is the Engineers email?'
+    },
+    {
+      type: 'input',
+      name: 'github',
+      message: 'What is the engineers GitHub username?',
+    },
+    {
+      type: 'list',
+      name: 'addMember',
+      message: 'What type of team member do you want to add next?',
+      choices: ['Engineer', 'Intern', 'None'],
+    }
+  ])
+.then((engineerAnswers)) => {
+  const intern = new Engineer(engineerAnswers.id, engineerAnswers.name, engineerAnswers.email, engineerAnswers.github)
+  team.push(intern)
+  switch(internAnswers.addMember){
+    case 'Engineer';
+      engineerQuestions();
+      break;
+    case 'Intern';
+      internQuestions();
+      break;
+    default;
+      writeToFile('dist/index.html', generateMyTeam(team)
+    }
+  })
+}
 
-// const generateInstallation = (answers) => {
-//     return `## Installation
-// };
+const managerQuestions = () => {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'What is the managers name?',
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'What is the managers id?',
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'What is the managers email?'
+    },
+    {
+      type: 'input',
+      name: 'officeNumber',
+      message: 'What is the managers office number?'
+    },
+    {
+      type: 'list',
+      name: 'addMember',
+      message: 'What type of team member do you want to add next?',
+      choices: ['Engineer', 'Intern', 'None'],
+    }
+  ])
+.then((managerAnswers)) => {
 
-// generate readme example
-const generateReadme = (answers) => {
-  return `${generateTitle(answers)}
-  
-  ${generateTableOfContents(answers)}
-  
-  ${generateDescription(answers)}
-  
-  ${generateInstallation(answers)}
-  
-  ${generateUsage(answers)}
-  
-  ${generateTests(answers)}
-  
-  ${generateContributing(answers)}
-  
-  ${generateLicense(answers)}
-  `;
-};
+  const intern = new Manager(managerAnswers.id, managerAnswers.name, managerAnswers.email, managerAnswers.school)
+  team.push(manager)
+  switch(internAnswers.addMember) {
+    case 'Engineer';
+    engineerQuestions();
+      break;
+    case 'Intern';
+      internQuestions();
+      break;
+    default;
+      writeToFile('dist/index.html', generateMyTeam(team)
+    }
+  })
+}
 
-//
 const writeToFile = (filePath, data) => {
   try {
     fs.writeFileSync(filePath, data);
@@ -93,15 +140,3 @@ const writeToFile = (filePath, data) => {
     console.log(error.message);
   }
 };
-
-const init = async () => {
-  // prompt the questions using inquirer
-
-  // generate readme based on answers
-  const readme = generateReadme();
-
-  // write generated readme to a file
-  writeToFile("GENERATED_README.md", readme);
-};
-
-init();
